@@ -62,5 +62,6 @@ public class Example1 {
 		
 			// 형제간의 타입변환은 불가능하다.
 		닭 chicken1 = new 닭(); chicken1.showMe(); // 인스턴스(4개)
+		// 참새 sparrow5 = (참새)chicken1; // 형제들 간의 타입변환은 될 수 없다.
 	}
 }
