@@ -37,4 +37,25 @@
 			Expiration : 유효기간 
 			모든 체크 권한
 		7. 토큰 발급 코드 : 
-		
+
+
+[설치]
+1. MySQL Server / 2. MySQL WorkBench
+		- https://dev.mysql.com/downloads/installer/
+2. 이클립스
+	- Eclipse IDE for Java Developers - 2024-09
+	[PC 변경]
+	1. 기존 작업했던 PC에서 최종 commit/push
+	[새로운 PC]
+	1. [상단메뉴] -> [windows] -> [show view]
+	2. [other] -> git 폴더 -> [git Repositories]
+	3. 'clone a git Repository' 클릭
+	4. 'Clone URI' 클릭 -> [next] 클릭
+	5. 
+		URI : 본인 git 주소
+		USER : 본인 git ID
+		Password : 본인 토큰 번호
+		* Store in Secure Store 체크
+	[Next] -> [Next] -> [Finish]
+	6. [git Repositories] 창에서 clone 리포지토리명 확인
+	7. 리포지토리명 		
