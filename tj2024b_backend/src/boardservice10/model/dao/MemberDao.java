@@ -29,7 +29,7 @@ public class MemberDao {
 		public boolean signup(MemberDto memberDto) {
 			try {
 			// [1] SQL 작성한다
-			String sql = "insert into member(mid, mpwd, mname, mphone) values('', '', '', '')";
+			String sql = "insert into member(mid, mpwd, mname, mphone) values('"+memberDto.getMid()+"', '"+memberDto.getMpwd()+"', '"+memberDto.getMname()+"', '"+memberDto.getMphone()+"')";
 			// [2] DB와 연동된 곳에 SQL 기재한다.		- 연동된 db에 sql 기재하는 방법 : conn.prepareStatement(SQL)
 			PreparedStatement ps = conn.prepareStatement(sql);
 			// [3] 기재된 SQL를 실행하고 결과를 받는다		- 기재된 sql를 실행하는 방법 : ps.executeUpdate()
