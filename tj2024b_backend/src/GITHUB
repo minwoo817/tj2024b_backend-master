@@ -59,3 +59,24 @@
 	[Next] -> [Next] -> [Finish]
 	6. [git Repositories] 창에서 clone 리포지토리명 확인
 	7. 리포지토리명 		
+	
+[협업 브랜치]
+	1. git 담당자가 팀 저장소에 초대한다.
+	2. 각 팀원들은 초대를 받는다.
+	3. 각 팀원들은 초대받은 저장소를 클론한다.
+		4.[이클립스] -> 상단메뉴[Window] -> [Show view] ->[others]
+		5. [git] -> [git repositories]
+		6. clone a Git repository 클릭 -> clone URI 클릭
+		7. 	
+			URI : 클론할 깃 저장소 주소
+			user : git이름
+			password : git 비밀번호
+		8. [next] -> [finish]
+	4. 클론된 저장소에서 프로젝트를 import
+		1. 저장소 안에 --> working tree --> 프로젝트명 오른쪽 클릭 --> import
+	
+[브랜치 생성]
+	1. 프로젝트 폴더 오른쪽 클릭 -> [team] -> [switch to] --> [new branch]
+		- 브랜치명은 식별가능하게 정의 --> finish
+	2. 브랜치 생성 후 커밋: local 저장소 완료/푸쉬 : local 저장소를 온라인으로 업로드
+	
