@@ -48,6 +48,8 @@ public class MemberView {
 		boolean result = MemberController.getInstance().login(memberDto);
 		if(result) {
 			System.out.println("로그인 성공");
+			// BoardView 메인 메뉴 메소드 호출
+			BoardView.getInstance().index();
 		}
 		else {System.out.println("로그인 실패");}
 		
@@ -101,7 +103,7 @@ public class MemberView {
 	}
 	
 	// 6. 내정보 보기 화면 메소드
-	public void myInfo() {
+	public int myInfo() {
 		// 받는곳 = MemberController.getInstance().myInfo(주는곳);
 		MemberDto result = MemberController.getInstance().myInfo();
 		System.out.println("======== 마이 페이지 ========");
@@ -113,20 +115,38 @@ public class MemberView {
 		while(true) {
 		System.out.println("1.회원수정 2.회원탈퇴 3.뒤로가기:");
 		int choose2 = scan.nextInt();
-		if(choose2 == 1) {}
-		else if(choose2 ==2) {delete(); break;}
+		if(choose2 == 1) {update();}
+		else if(choose2 ==2) {
+			int state = delete();
+			if(state == 0) {return 0;}
+		}
 		else if(choose2 == 3) {break;} // 메뉴에서 무한반복 탈출
 		}
+		return 1;
 	}
 		
 	
 	// 7. 회원탈퇴 화면 메소드
-	public void delete() {
+	public int delete() {
 		System.out.println("정말 회원 탈퇴 하시겠습니까? 0:예 1:취소");
 		int choose3 = scan.nextInt();
 		if(choose3 == 0) {
 			MemberController.getInstance().delete(); // - 탈퇴처리 컨트롤러 요청
 			logout(); // 탈퇴처리시 로그아웃하기
+			return 0;
 		}
+		return 1;
+	}
+	
+	// 8. 화면수정 화면 메소드
+	public void update() {
+		System.out.println("새로운 비밀번호: "); String mpwd = scan.next();
+		System.out.println("새로운 이름: "); String mname = scan.next();
+		System.out.println("새로운 전화번호: "); String mphone = scan.next();
+		MemberDto memberDto = new MemberDto();
+		memberDto.setMpwd(mpwd); memberDto.setMname(mname); memberDto.setMphone(mphone);
+		boolean result = MemberController.getInstance().update(memberDto);
+		if(result) {System.out.println("수정완료");}
+		else {System.out.println("수정실패");}
 	}
 }
