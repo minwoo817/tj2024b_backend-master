@@ -40,8 +40,8 @@ public class BoardView {
 		for(int index = 0; index <= result.size()-1; index++) {
 			BoardDto boardDto = result.get(index); // index번째의 요소 객체를 꺼내기
 			System.out.print(boardDto.getBno()+"\t");
-			System.out.print(boardDto.getCno()+"\t");
-			System.out.print(boardDto.getMno()+"\t");
+			System.out.print(boardDto.getCname()+"\t");
+			System.out.print(boardDto.getMid()+"\t");
 			System.out.print(boardDto.getBdate()+"\t");
 			System.out.print(boardDto.getBtitle()+"\n");
 			

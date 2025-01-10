@@ -50,6 +50,7 @@ public class MemberView {
 			System.out.println("로그인 성공");
 			// BoardView 메인 메뉴 메소드 호출
 			BoardView.getInstance().index();
+			
 		}
 		else {System.out.println("로그인 실패");}
 		

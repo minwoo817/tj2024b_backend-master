@@ -23,7 +23,7 @@ public class MemberController {
 		public boolean login(MemberDto memberDto) {
 			int result = MemberDao.getInstance().login(memberDto);
 			// boolean --> int 변경 이유 : 로그인 성공한 회원번호를 내부적으로 저장하기 위해
-			// 회원번호(1번 시작하므로)를 반환받아서 0이면 ㅇ벗는 회원번호, 0초과이면 있는 회원번호 
+			// 회원번호(1번 시작하므로)를 반환받아서 0이면 없는 회원번호, 0초과이면 있는 회원번호 
 			if(result > 0) { // 로그인 성공
 				loginMno = result; // 로그인 성공시 로그인 저장변수에 로그인 성공한 회원번호 반환
 				return true;

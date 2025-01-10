@@ -18,7 +18,8 @@ public class BoardDao extends SuperDao{
 		ArrayList<BoardDto> list = new ArrayList<>();
 		
 		try {
-		String sql = "select * from board";
+		String sql = "select * from board as b inner join category as c on b.cno = c.cno"
+				+ " inner join member as m on b.mno = m.mno";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
@@ -33,6 +34,8 @@ public class BoardDao extends SuperDao{
 			int cno = rs.getInt("cno");
 			// 2. 반환 속성값들을 dto(객체)로 만들기
 			BoardDto boardDto = new BoardDto(bno, btitle, bcontent, bview, bdate, mno, cno);
+			boardDto.setCname(rs.getString("cname"));
+			boardDto.setMid(rs.getString("mid"));
 			// 3. 생성된 dto(객체)를 리스트에 담기
 			list.add(boardDto);
 		}
@@ -41,7 +44,9 @@ public class BoardDao extends SuperDao{
 	}
 	public BoardDto findById(int bno) {
 		try {
-		String sql = "select * from board where bno = ?";
+		String sql = "select b.* , c.cname , m.mid"
+				+ "from board as b inner join category as c on b.cno = c.cno"
+				+ "inner join member as m on b.mno = m.mno";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, bno);
 		ResultSet rs = ps.executeQuery();
